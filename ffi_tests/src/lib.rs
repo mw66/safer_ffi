@@ -22,6 +22,20 @@ fn concat (
 fn free_char_p (_string: Option<char_p::Box>)
 {}
 
+#[ffi_export]
+fn returns_a_fn_ptr ()
+  -> extern "C" fn(u8) -> u16
+{
+    extern "C"
+    fn f (n: u8)
+      -> u16
+    {
+        (n as u16) << 8
+    }
+
+    f
+}
+
 /// Same as `concat`, but with a callback-based API to auto-free the created
 /// string.
 #[ffi_export]

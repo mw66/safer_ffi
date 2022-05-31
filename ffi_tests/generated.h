@@ -96,7 +96,9 @@ enum triforce {
 triforce_t;
 
 /** <No documentation available> */
-int32_t async_get_ft (void);
+int32_t 
+async_get_ft (void);
+
 /** \brief
  *  This is a `#[repr(C)]` enum, which leads to a classic enum def.
  */
@@ -108,25 +110,40 @@ typedef enum SomeReprCEnum {
 } SomeReprCEnum_t;
 
 /** <No documentation available> */
-void check_SomeReprCEnum (SomeReprCEnum_t _baz);
+void 
+check_SomeReprCEnum (
+    SomeReprCEnum_t _baz);
+
 /** <No documentation available> */
-void check_bar (Bar_t _bar);
+void 
+check_bar (
+    Bar_t _bar);
+
 /** \brief
  *  Concatenate the two input strings into a new one.
  *
  *  The returned string must be freed using `free_char_p`.
  */
-char * concat (char const * fst,
+char * 
+concat (
+    char const * fst,
     char const * snd);
+
 /** \brief
  *  Frees a string created by `concat`.
  */
-void free_char_p (char * _string);
+void 
+free_char_p (
+    char * _string);
+
 /** <No documentation available> */
 typedef struct foo foo_t;
 
 /** <No documentation available> */
-void free_foo (foo_t * foo);
+void 
+free_foo (
+    foo_t * foo);
+
 /** \brief
  *  `&'lt [T]` but with a guaranteed `#[repr(C)]` layout.
  * 
@@ -158,11 +175,23 @@ typedef struct {
  *  Returns a pointer to the maximum integer of the input slice, or `NULL` if
  *  it is empty.
  */
-int32_t const * max (slice_ref_int32_t xs);
+int32_t const * 
+max (
+    slice_ref_int32_t xs);
+
 /** <No documentation available> */
-foo_t * new_foo (void);
+foo_t * 
+new_foo (void);
+
 /** <No documentation available> */
-int32_t read_foo (foo_t const * foo);
+int32_t 
+read_foo (
+    foo_t const * foo);
+
+/** <No documentation available> */
+uint16_t (*
+returns_a_fn_ptr (void))(uint8_t);
+
 typedef struct {
 
     void * env_ptr;
@@ -175,11 +204,17 @@ typedef struct {
  *  Same as `concat`, but with a callback-based API to auto-free the created
  *  string.
  */
-void with_concat (char const * fst,
+void 
+with_concat (
+    char const * fst,
     char const * snd,
     RefDynFnMut1_void_char_const_ptr_t cb);
+
 /** <No documentation available> */
-bool with_foo (void (*cb)(foo_t *));
+bool 
+with_foo (
+    void (*cb)(foo_t *));
+
 
 #ifdef __cplusplus
 } /* extern \"C\" */

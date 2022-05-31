@@ -192,9 +192,9 @@ fn compile_warning (
     let fst = spans.next().unwrap_or_else(|| Span::call_site());
     let lst = spans.fold(fst, |cur, _| cur);
     let safer_ffi_ = Ident::new("safer_ffi_", fst);
-    let warning = Ident::new("warning", fst);
+    let warning = Ident::new("warning", lst);
     let ref message = ["\n", message].concat();
-    quote!(
+    quote_spanned!(lst=>
         const _: () = {
             mod safer_ffi_ {
                 #[deprecated(note = #message)]

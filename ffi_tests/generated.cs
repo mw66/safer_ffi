@@ -163,6 +163,18 @@ public unsafe partial class Ffi {
 
 [UnmanagedFunctionPointer(CallingConvention.Winapi)]
 public unsafe /* static */ delegate
+    UInt16
+    uint16_uint8_fptr (
+        byte _0);
+
+public unsafe partial class Ffi {
+    [return: MarshalAs(UnmanagedType.FunctionPtr)]
+    [DllImport(RustLib, ExactSpelling = true)] public static unsafe extern
+    uint16_uint8_fptr returns_a_fn_ptr ();
+}
+
+[UnmanagedFunctionPointer(CallingConvention.Winapi)]
+public unsafe /* static */ delegate
     void
     void_void_ptr_char_const_ptr_fptr (
         void * _0,
